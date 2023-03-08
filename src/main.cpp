@@ -50,11 +50,10 @@ void OnReadSensor()
 {
   float fHumidity = dht.getHumidity();
   float fTemperature = dht.getTemperature();
-  Serial.printf("Humidity: %.2f, Temperature: %.2f\n", fHumidity, fTemperature);
-  digitalWrite(LED_YELLOW, (fHumidity > 80)?HIGH:LOW);
-
   float lux = lightMeter.readLightLevel();
-  Serial.printf("Light: %.2f\n", lux);
+  Serial.printf("Humidity: %.2f, Temperature: %.2f, Light: %.2f\n", 
+    fHumidity, fTemperature, lux);
+  digitalWrite(LED_YELLOW, (fHumidity > 80)?HIGH:LOW);
 }
 
 void setup() {
